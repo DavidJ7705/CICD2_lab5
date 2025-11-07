@@ -16,7 +16,7 @@ def _fk_on(dbapi_conn, _):
 
 TestingSessionLocal = sessionmaker(bind=engine, expire_on_commit=False)
 
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True) # run before each test
 def _schema():
     Base.metadata.create_all(bind=engine)
     yield
