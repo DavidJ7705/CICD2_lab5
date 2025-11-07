@@ -23,7 +23,7 @@ connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite")
 for _ in range(RETRIES):
     try:
         engine = create_engine(DATABASE_URL, pool_pre_ping=True, echo=SQL_ECHO, connect_args=connect_args)
-        with engine.connect(): # smoke test
+        with engine.connect():  # smoke test
             pass
         break
     except OperationalError:
